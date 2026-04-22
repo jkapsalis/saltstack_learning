@@ -360,6 +360,61 @@
     </div>
   </div>
 
+<!-- ═══════════════════════════════════════
+       STEP 0 — Install Salt MASTER on RHEL vm
+  ═══════════════════════════════════════ -->
+    <div class="section-header">
+    <div class="step-num cyan">why,who and what</div>
+    <h2>Introduction</h2>
+  </div>
+  <!-- Introduction -->
+<div class="card" style="border-color:rgba(74,158,255,0.3)">
+  <div class="card-head" style="background:rgba(74,158,255,0.06)">
+    Introduction — SaltStack Overview & Project Scope
+  </div>
+
+  <div class="card-body">
+
+    <p>
+      <strong>SaltStack</strong> is an open-source infrastructure automation and configuration management tool 
+      designed to manage and control large numbers of systems from a central point. It is built using Python 
+      and provides fast, scalable communication between a central controller (master) and managed nodes (minions).
+    </p>
+
+    <p>
+      SaltStack enables administrators to automate routine tasks such as package installation, system updates, 
+      service management, and configuration enforcement. Its event-driven architecture and remote execution 
+      capabilities make it a powerful solution for modern infrastructure management.
+    </p>
+
+    <hr>
+
+    <p><strong>Project Objective</strong></p>
+
+    <p>
+      The goal of this project is to implement SaltStack in a controlled lab environment in order to centrally 
+      manage multiple Linux systems. The setup focuses on establishing a Salt master server and connecting 
+      minion nodes to enable remote execution and configuration management.
+    </p>
+
+    <p>
+      Through this implementation, the system administrator will be able to:
+    </p>
+
+    <ul class="checklist">
+      <li>Automate package installation across multiple systems</li>
+      <li>Manage software updates from a central location</li>
+      <li>Apply consistent configuration policies</li>
+      <li>Execute remote commands efficiently and securely</li>
+    </ul>
+
+    <p>
+      This guide walks through the installation, configuration, and validation of a functional SaltStack 
+      environment, starting with the master setup and expanding to managed minion systems.
+    </p>
+
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════
        STEP 0 — Install Salt MASTER on RHEL vm
