@@ -562,7 +562,7 @@
 
   <!-- QUICK TROUBLESHOOTING -->
   <div class="section-header" style="margin-top:2rem">
-    <div class="step-num" style="background:var(--salt-red);width:36px;height:36px;font-size:1rem">⚡</div>
+    <div class="step-num" style="background:var(--salt-red);width:36px;height:36px;font-size:1rem">!</div>
     <h2>Quick Troubleshooting</h2>
   </div>
 
@@ -581,19 +581,6 @@
 <span class="cmd">ss -tlnp | grep -E '4505|4506'</span>
 <span class="comment"># Test from minion side</span>
 <span class="cmd">telnet 192.168.56.107 4505</span></pre>
-
-      <p><strong style="color:var(--salt-amber)">SELinux blocking connections:</strong></p>
-      <pre>
-<span class="cmd">ausearch -m avc -ts recent | grep salt</span>
-<span class="comment"># Temporary: set permissive, test, then create a policy</span>
-<span class="cmd">setenforce 0</span></pre>
-
-      <p><strong style="color:var(--salt-amber)">After changing minion ID</strong> — delete the old key on master and re-accept:</p>
-      <pre>
-<span class="cmd">salt-key -d old-minion-id</span>
-<span class="cmd">rm /etc/salt/pki/minion/minion.pub /etc/salt/pki/minion/minion.pem</span>
-<span class="cmd">systemctl restart salt-minion</span>
-<span class="comment"># Then salt-key -a new-minion-id on master</span></pre>
     </div>
   </div>
 
@@ -602,11 +589,8 @@
     <div class="card-head" style="background:rgba(74,158,255,0.06)">What's Next — Remaining Project Steps</div>
     <div class="card-body">
       <ul class="checklist">
-        <li>Step 3 — Write your first Salt State (<code>/srv/salt/packages.sls</code>) to install packages across all minions</li>
-        <li>Step 4 — Use Pillars to store per-minion config data securely (<code>/srv/pillar/</code>)</li>
-        <li>Step 5 — Create a Top File (<code>/srv/salt/top.sls</code>) to map states to minion targets</li>
-        <li>Step 6 — Apply states with <code>salt '*' state.apply</code></li>
-        <li>Step 7 — Schedule recurring jobs with Salt's scheduler or cron</li>
+        <li>Step 3 — Configure trust relationships between domain controllers.</li>
+        <li>Step 4 —Test domain authentication and certificate issuance.</li>
       </ul>
     </div>
   </div>
