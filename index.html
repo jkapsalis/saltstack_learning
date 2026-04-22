@@ -338,7 +338,7 @@
     </div>
     <div class="topo-row" style="margin:0.4rem 0">
       <div class="arrow">↕</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-dim)">ZeroMQ pub/sub</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-dim)"></div>
       <div class="arrow">↕</div>
     </div>
     <div class="topo-row">
@@ -359,6 +359,64 @@
       <span>4506</span> (return)
     </div>
   </div>
+
+
+<!-- ═══════════════════════════════════════
+       STEP 0 — Install Salt MASTER on RHEL vm
+  ═══════════════════════════════════════ -->
+    <div class="section-header">
+    <div class="step-num cyan">0</div>
+    <h2>Install the Salt Stack on Oracle Linux 9.5 VM</h2>
+  </div>
+   <!-- 0. Installation of salt components -->
+<div class="card">
+  <div class="card-head">
+    1a — Install Salt Components <span class="tag tag-master">Master & Minion</span>
+  </div>
+
+  <div class="card-body">
+    <p>
+      <strong>SaltStack</strong> is an open-source IT automation tool used for remote execution and configuration management. 
+      It is Python-based and designed for fast, scalable infrastructure control.
+    </p>
+
+    <p>First, add the official Salt Project repository and install the master service:</p>
+
+    <pre>
+<span class="comment"># Add Salt Project repository</span>
+<span class="cmd">curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt.repo | sudo tee /etc/yum.repos.d/salt.repo</span>
+
+<span class="comment"># Refresh package cache</span>
+<span class="cmd">sudo dnf clean expire-cache</span>
+
+<span class="comment"># Install Salt Master</span>
+<span class="cmd">sudo dnf install -y salt-master</span>
+    </pre>
+
+    <p>On the minion VM, install the Salt minion service:</p>
+
+    <pre>
+<span class="comment"># Install Salt Minion</span>
+<span class="cmd">sudo dnf install -y salt-minion</span>
+    </pre>
+
+    <p>Optional components for extended functionality:</p>
+
+    <pre>
+<span class="comment"># Remote execution without minions</span>
+<span class="cmd">sudo dnf install -y salt-ssh</span>
+
+<span class="comment"># Multi-master scaling</span>
+<span class="cmd">sudo dnf install -y salt-syndic</span>
+
+<span class="comment"># Cloud provisioning support</span>
+<span class="cmd">sudo dnf install -y salt-cloud</span>
+
+<span class="comment"># REST API interface</span>
+<span class="cmd">sudo dnf install -y salt-api</span>
+    </pre>
+  </div>
+</div>
 
   <!-- ═══════════════════════════════════════
        STEP 1 — MASTER
