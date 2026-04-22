@@ -368,15 +368,89 @@
     <div class="step-num cyan">0</div>
     <h2>Install the Salt Stack on Oracle Linux 9.5 VM</h2>
   </div>
+
+  <!-- Best Practices -->
+<div class="card" style="border-color:rgba(255,193,7,0.3)">
+  <div class="card-head" style="background:rgba(255,193,7,0.08)">
+    Best Practices — Salt Master Configuration
+  </div>
+
+  <div class="card-body">
+
+    <p>
+      Instead of placing all configuration inside <code>/etc/salt/master</code>, it is recommended to use the 
+      <code>/etc/salt/master.d/</code> directory. This approach allows better organization by separating 
+      configuration into logical files.
+    </p>
+
+    <p>
+      For example, performance tuning settings can be placed in a dedicated file such as:
+    </p>
+
+    <pre><code>
+/etc/salt/master.d/tuning.conf
+    </code></pre>
+
+    <p>
+      This keeps the main configuration clean and makes maintenance easier in larger environments.
+    </p>
+
+    <hr>
+
+    <p><strong>Salt Master Network Settings</strong></p>
+    <p>
+      By default, the Salt master binds to all available network interfaces and listens on the following ports:
+    </p>
+
+    <pre><code>
+4505 (publisher)
+4506 (return)
+    </code></pre>
+
+    <p>
+      Ensure these ports are open and accessible from minion systems.
+    </p>
+
+    <hr>
+
+    <p><strong>Salt Master Process Management</strong></p>
+    <p>
+      In environments with many minions, job responses may appear to stall. This does not always indicate failure—
+      it may mean the master cannot process responses fast enough.
+    </p>
+
+    <p>
+      Salt uses worker processes to handle minion return data. This behavior is controlled by the 
+      <code>worker_threads</code> setting.
+    </p>
+
+    <pre><code>
+# Example tuning
+worker_threads: 10
+    </code></pre>
+
+    <p>
+      Default value: 5<br>
+      Minimum value: 3
+    </p>
+
+    <p>
+      Increasing this value can improve performance in larger environments with many minions.
+    </p>
+
+  </div>
+</div>
+
+  
    <!-- 0. Installation of salt components -->
 <div class="card">
   <div class="card-head">
-    1a — Install Salt Components <span class="tag tag-master">Master & Minion</span>
+    0. — Install Salt Components <span class="tag tag-master">Master & Minion</span>
   </div>
 
   <div class="card-body">
     <p>
-      <strong>SaltStack</strong> is an open-source IT automation tool used for remote execution and configuration management. 
+      <strong>Introduction for SaltStack</strong> SaltStack is an open-source IT automation tool used for remote execution and configuration management. 
       It is Python-based and designed for fast, scalable infrastructure control.
     </p>
 
