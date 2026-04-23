@@ -749,6 +749,33 @@ worker_threads: 10
     </div>
   </div>
 
+
+  <!--MY configuration -->
+  <div class="section-header" style="margin-top:2rem">
+    <div class="step-num" style="background:var(--salt-red);width:36px;height:36px;font-size:1rem">conf</div>
+    <h2>My Configuration</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-head">Basic &amp; Configuration</div>
+    <div class="card-body">
+      <p><strong style="color:var(--salt-amber)">Common Configuration Setup ON SALT-MASTER </strong></p>
+      <pre>
+<span class="comment">#Set the master IP in the minion configuration</span>
+<span class="cmd">master: 192.168.56.107 </span>
+<span class="comment">#Set the ports and the user (basically uncomment those parameters)</span>
+<span class="cmd">publish_port : 4505</span>
+<span class="cmd">ret_port : 4506 </span>
+<span class="comment">#For the lab purposes uncomment the file_root at the File Server settings </span>
+<span class="comment">#file_root: base : - /srv/salt</span></pre>
+<span class="comment">and the same for pillar_roots #pillar_roots: base : - /srv/salt</span></pre>
+<img src="photos_screen/file_server_settings.png" alt="File server settings">
+<img src="photos_screen/pillar_settings.png" alt="Pillar settings">
+<img src="photos_screen/port_set.png" alt="Port settings">
+    </div>
+  </div>
+
+
   <!-- QUICK TROUBLESHOOTING -->
   <div class="section-header" style="margin-top:2rem">
     <div class="step-num" style="background:var(--salt-red);width:36px;height:36px;font-size:1rem"> HELPFULL 4 later </div>
@@ -778,8 +805,8 @@ worker_threads: 10
     <div class="card-head" style="background:rgba(74,158,255,0.06)">What's Next — Remaining Project Steps</div>
     <div class="card-body">
       <ul class="checklist">
-        <li>Step 3 — Configure trust relationships between domain controllers.</li>
-        <li>Step 4 —Test domain authentication and certificate issuance.</li>
+        <li>Step 3 — Create SaltStack states to define package installation and update policies.</li>
+        <li>Step 4 —Implement configuration management using SaltStack formulas or custom states..</li>
       </ul>
     </div>
   </div>
